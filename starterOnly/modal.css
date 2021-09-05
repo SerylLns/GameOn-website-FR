@@ -558,3 +558,55 @@ footer {
     width: 90%;
   }
 }
+@media screen and (max-width: 800px) {
+  .hero-section {
+    display: block;
+    box-shadow: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-content {
+    background: #fff;
+    color: #000;
+    padding: 20px;
+  }
+  .hero-content::after {
+    content: unset;
+  }
+  .hero-content .btn-signup {
+    display: none;
+  }
+  .hero-headline {
+    font-size: 4rem;
+    white-space: normal;
+    width: 100%;
+    text-align: center;
+  }
+  .hero-text {
+    width: unset;
+    font-size: 1.5rem;
+    min-width: auto;
+    width: 84%;
+    text-align: center;
+    margin: 20px 30px;
+  }
+  .hero-img img {
+    border-radius: 10px;
+    margin-top: 40px;
+  }
+  .hero-section > .btn-signup {
+    display: block;
+    margin: 32px auto 10px;
+    padding: 12px 35px;
+  }
+  .copyrights {
+    margin-top: 50px;
+    text-align: center;
+  }
+  #modalSuccess{
+    top: 11%;
+  }
+
+}
