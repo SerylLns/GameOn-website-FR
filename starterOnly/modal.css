@@ -525,33 +525,6 @@ footer {
 #cityError{
   display: none;
 }
-#modalSuccess{
-  transition: opacity 3s;
-  top: 120px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  z-index: 50;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 2em;
-  border-radius: 6px;
-  background-color: #232323;
-  color: white;
-  opacity: 1;
-  display: none;
-  /* display: none; */
-}
-#modalSuccess h4{
-  margin-bottom: 50px;
-}
-#modalSuccess button{
-  margin-top: 100px;
-}
 
 @media screen and (max-width: 800px) {
   .hero-img{
