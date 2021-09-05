@@ -30,6 +30,13 @@
     </div>
   </div>
     <main>
+      <div id="modalSuccess">
+          <span class="close"></span>
+        <h4>Merci ! <br> Votre réservation a été reçue.</h4>
+        <button class="btn-signup modal-btn">
+          Fermer
+        </button>
+      </div>
       <div class="hero-section">
         <div class="hero-content">
           <h1 class="hero-headline">
@@ -57,58 +64,66 @@
           <span class="close"></span>
           <div class="modal-body">
             <form
+              id="form"
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
             >
               <div
                 class="formData">
-                <label>Prénom</label><br>
+                <label for="first">Prénom</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
                   minlength="2"
-                /><br>
+                  />
+                  <br>
+                  <h6 id="firstnameError" class="error"> Le prénom doit contenir plus de 2 caractéres </h6>
+
               </div>
               <div
                 class="formData">
-                <label>Nom</label><br>
+                <label for="last">Nom</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="last"
                   name="last"
                 /><br>
+                <h6 id="nameError" class="error">Le prénom doit contenir plus de 2 caractéres</h6>
               </div>
               <div
                 class="formData">
-                <label>E-mail</label><br>
+                <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
                   type="email"
                   id="email"
                   name="email"
                 /><br>
+                <h6 id="emailError" class="error">L'email ne semble pas valide</h6>
               </div>
               <div
                 class="formData">
-                <label>Date de naissance</label><br>
+                <label for="birthdate">Date de naissance</label><br>
                 <input
                   class="text-control"
                   type="date"
                   id="birthdate"
                   name="birthdate"
                 /><br>
+
               </div>
               <div
                 class="formData">
-                <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
+                <label id="tournamentError" class="error">Veuillez rentrer un chiffre</label>
               <p class="text-label">Quelles villes ?</p>
+                <h6 id="cityError" class="error">Veuillez cocher une ville</h6>
               <div
                 class="formData">
                 <input
@@ -191,7 +206,8 @@
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
-                <br>
+                <h6 id="cguError" class="error">Les conditions d'utilisation doivent être accepté</h6>
+                <!-- <br> -->
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
