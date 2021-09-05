@@ -547,6 +547,10 @@ footer {
   display: none;
   /* display: none; */
 }
+#modalSuccess .btn-signup:hover{
+  transition: all 0.4s;
+  background-color: #0070C4;
+}
 #modalSuccess h4{
   margin-bottom: 50px;
 }

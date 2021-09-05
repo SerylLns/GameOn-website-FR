@@ -12,7 +12,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const form = document.querySelector("#form");
-const btnExit = document.querySelector(".close");
+const btnExit = document.querySelector("#closeForm");
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -90,9 +90,13 @@ form.addEventListener("submit", (e) => {
     modalbg.style.display = "none";
     modalSuccess = document.querySelector("#modalSuccess");
     modalSuccess.style.display = "flex";
-    setTimeout(() => {
-      modalSuccess.style.zIndex = "0"
-      modalSuccess.style.opacity = "0"; 
-    }, 3000);
   }
 })
+
+closeSuccessModal = document.querySelectorAll("#close-successmodal");
+
+closeSuccessModal.forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    modalSuccess.style.display = "none"
+  })
+});
