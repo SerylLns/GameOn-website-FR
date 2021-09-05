@@ -528,10 +528,14 @@ footer {
 
 #modalSuccess{
   transition: opacity 3s;
-  top: 120px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  top: 50%;
+  width: 100%;
+  max-width: 500px;
+  left: 50%;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  /* right: 0px; */
+  /* bottom: 0px; */
   z-index: 50;
   position: fixed;
   display: flex;
@@ -544,22 +548,24 @@ footer {
   background-color: #232323;
   color: white;
   opacity: 1;
+  overflow-y: scroll;
   display: none;
-  /* display: none; */
 }
 #modalSuccess .btn-signup:hover{
   transition: all 0.4s;
   background-color: #0070C4;
 }
 #modalSuccess h4{
+  padding-top: 50px;
   margin-bottom: 50px;
 }
 #modalSuccess button{
   margin-top: 100px;
+  margin-bottom: 50px;
 }
 @media screen and (max-width: 800px) {
   .hero-img{
-    width: 90%;
+    width: 100%;
   }
 }
 @media screen and (max-width: 800px) {
@@ -610,7 +616,8 @@ footer {
     text-align: center;
   }
   #modalSuccess{
-    top: 11%;
+    top: 55%;
+}
   }
 
 }
