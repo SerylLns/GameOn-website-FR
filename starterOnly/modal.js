@@ -46,10 +46,10 @@ const validate = () => {
   // validate first_name
   const first_name = document.querySelector('#first');
   toggleError(first_name.value.length > 2, "#firstnameError");
+  const firstNameValid = first_name.value.length > 2
   // validate last_name
-  firstNameValid = first_name.value.length > 2 
   const last_name = document.querySelector('#last');
-  lastNameValid = last_name.value.length > 2 
+  const lastNameValid = last_name.value.length > 2 
   toggleError(last_name.value.length > 2, "#nameError");
   // validate email
   const email = document.querySelector("#email");
@@ -83,14 +83,11 @@ const toggleError = (value, id) => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   let isValid = validate();
-  // console.log(validate());
-  if (!isValid) {
-    
-  } else {
+  if (isValid) {
     modalbg.style.display = "none";
     modalSuccess = document.querySelector("#modalSuccess");
     modalSuccess.style.display = "flex";
-  }
+  } 
 })
 
 closeSuccessModal = document.querySelectorAll("#close-successmodal");
