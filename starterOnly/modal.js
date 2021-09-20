@@ -27,8 +27,10 @@ btnExit.addEventListener('click', (e) => {
 
 // validation form
 const validate = () => {
-  // validate CGU
+  // return this value if valid or not
   let isValid = false;
+
+  // validate CGU 
   const checkbox = document.querySelector("#checkbox1");
   let checkboxCGU = checkbox.checked;
   toggleError(checkboxCGU, "#cguError");
@@ -44,17 +46,19 @@ const validate = () => {
   toggleError(checkboxCity, "#cityError")
   
   // validate first_name
+  const regexpName = /[a-zA-Z]{3,}/;
   const first_name = document.querySelector('#first');
-  toggleError(first_name.value.length > 2, "#firstnameError");
-  const firstNameValid = first_name.value.length > 2
+  const firstNameValid = regexpName.test(first_name.value);
+  console.log(regexpName.test(first_name.value));
+  toggleError(firstNameValid, "#firstnameError");
   // validate last_name
   const last_name = document.querySelector('#last');
-  const lastNameValid = last_name.value.length > 2 
-  toggleError(last_name.value.length > 2, "#nameError");
+  const lastNameValid = regexpName.test(last_name.value);
+  toggleError(lastNameValid, "#nameError");
   // validate email
   const email = document.querySelector("#email");
-  const regexp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  const emailValid = regexp.test(email.value) 
+  const regexpEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const emailValid = regexpEmail.test(email.value) 
   toggleError( emailValid, "#emailError");
   // validate if tournament count is a integer
   const tournamentCount = document.querySelector('#quantity');
@@ -62,8 +66,8 @@ const validate = () => {
     toggleError(Number.isInteger(parseInt(tournamentCount.value)), '#tournamentError')
   }
 
-  if (checkboxCGU == true && checkboxCity == true && emailValid == true &&
-    firstNameValid == true && lastNameValid == true) {
+  if (checkboxCGU  && checkboxCity  && emailValid  &&
+    firstNameValid  && lastNameValid ) {
     isValid = true;
   } 
   return isValid
@@ -84,14 +88,15 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   let isValid = validate();
   if (isValid) {
+    // hide form & display success modal 
     modalbg.style.display = "none";
     modalSuccess = document.querySelector("#modalSuccess");
     modalSuccess.style.display = "flex";
   } 
 })
 
+// Close success modal  
 closeSuccessModal = document.querySelectorAll("#close-successmodal");
-
 closeSuccessModal.forEach(btn => {
   btn.addEventListener("click", (e) => {
     modalSuccess.style.display = "none"
