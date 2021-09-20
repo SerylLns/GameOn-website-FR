@@ -49,7 +49,6 @@ const validate = () => {
   const regexpName = /[a-zA-Z]{3,}/;
   const first_name = document.querySelector('#first');
   const firstNameValid = regexpName.test(first_name.value);
-  console.log(regexpName.test(first_name.value));
   toggleError(firstNameValid, "#firstnameError");
   // validate last_name
   const last_name = document.querySelector('#last');
